@@ -1,6 +1,27 @@
 import nltk
 
-# read text
+# from nltk.book import *
+# from nltk.corpus import brown
+
+
+# nltk basic practices
+# print(brown.words()[0:10])
+# print(len(brown.words()))
+# print(texts())
+# print(len(text1))
+
+
+# nltk basic tagging practices
+# sent = "I saw a boy in the park with a telescope."
+# taggedS = nltk.pos_tag(nltk.word_tokenize(sent))
+# grammar = "NP: {<DT>?<JJ>*<NN>}"
+# cp = nltk.RegexpParser(grammar)
+# result = cp.parse(taggedS)
+# print(result)
+# result.draw()
+
+
+# read text from file
 with open('Firearms.txt', 'r') as file:
     content = file.read().replace('\n', '')
 
@@ -20,6 +41,8 @@ tagged = nltk.pos_tag(tokens)
 def_nouns = nltk.FreqDist(w2 for ((w1, t1), (w2, t2))
                           in nltk.bigrams(tagged)
                           if w1.lower() == "the" and t2 == "NN")
+
+print(len(def_nouns))
 
 # get noun list
 noun_list = []
